@@ -20,6 +20,7 @@ class HomeViewModel @Inject constructor(private val getOfferUseCase: GetOfferUse
     private var _error = MutableLiveData<String>()
     val error: LiveData<String> = _error
 
+    //
     fun getOffer() = viewModelScope.launch {
         try{
             _offers.value = getOfferUseCase.execute()
