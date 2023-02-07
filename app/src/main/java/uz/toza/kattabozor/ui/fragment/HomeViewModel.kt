@@ -16,7 +16,15 @@ class HomeViewModel @Inject constructor(private val getOfferUseCase: GetOfferUse
 
     private var _offers = MutableLiveData<ArrayList<Offer>>()
     val offers: LiveData<ArrayList<Offer>> = _offers
+
+    private var _error = MutableLiveData<String>()
+    val error: LiveData<String> = _error
+
     fun getOffer() = viewModelScope.launch {
-        _offers.value = getOfferUseCase.execute()
+        try{
+            _offers.value = getOfferUseCase.execute()
+        } catch (ex:Exception){
+            _error.value="no internet"
+        }
     }
 }

@@ -34,6 +34,10 @@ class HomeFragment : Fragment() {
             homeViewModel.offers.observe(requireActivity()) {
                 recyclerview.adapter = OfferAdapter(it, requireContext())
             }
+
+            homeViewModel.error.observe(requireActivity()) {
+                txtStatus.text = it
+            }
         }
 
     }

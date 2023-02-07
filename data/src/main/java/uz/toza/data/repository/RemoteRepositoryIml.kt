@@ -32,7 +32,6 @@ class RemoteRepositoryIml(private val apiInterface: ApiInterface) : RemoteReposi
 
             }
         }
-
         return list
     }
 }
